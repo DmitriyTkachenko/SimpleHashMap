@@ -12,8 +12,6 @@ public class OpenAddressingHashMapTest {
     @Rule
     public ExpectedException exception = ExpectedException.none();
 
-    private Random rand = new Random();
-
     @Test
     public void testSize() throws Exception {
         OpenAddressingHashMap hashMap = new OpenAddressingHashMap();
@@ -78,6 +76,7 @@ public class OpenAddressingHashMapTest {
     @Test
     public void testResizing() throws Exception {
         OpenAddressingHashMap hashMap = new OpenAddressingHashMap(64);
+        Random rand = new Random();
         for (int i = 0; i < 100; ++i) {
             hashMap.put(rand.nextInt(), rand.nextLong());
         }
