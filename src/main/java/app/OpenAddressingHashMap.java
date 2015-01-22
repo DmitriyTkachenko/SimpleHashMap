@@ -57,14 +57,13 @@ public class OpenAddressingHashMap {
 
     /**
      * Computes hash for key as a remainder after division of lowest 31 bits of key.hashCode() by map's capacity.
-     * For Integer, key.hashCode() is the primitive value. If the specified key is null, 0 is returned.
+     * For Integer, key.hashCode() is the primitive value.
      *
      * @param key key to compute the hash for
-     * @return hash for specified key, 0 if the specified key is null
+     * @return hash for specified key
      */
     private int hash(Integer key) {
-        int keyHashCode = (key == null) ? 0 : key.hashCode();
-        return (keyHashCode & Integer.MAX_VALUE) % capacity;
+        return (key.hashCode() & Integer.MAX_VALUE) % capacity;
     }
 
     /**
@@ -151,7 +150,7 @@ public class OpenAddressingHashMap {
     }
 
     /**
-     * Returns the number of key-value pair in this map.
+     * Returns the number of key-value pairs in this map.
      * @return the number of key-value pairs in map
      */
     public int size() {
